@@ -9,7 +9,9 @@ function App() {
   return (
     <main className='main'>
       <Header/>
-      <Content/>
+      <div className='allContent'>
+        <Content/>
+      </div>
       <Footer/>
     </main>
   );

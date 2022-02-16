@@ -2,19 +2,35 @@
   margin: 0;
 }
 
+p {
+  margin-top: 10px;
+}
+
 .header {
-  margin: 30px 0;
+  margin: 40px 0;
   text-align: center;
 }
 
+.allContent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .card {
-  margin-top: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 40%;
+  padding: 40px 10px;
+  margin: 5px;
+  justify-content: center;
+  border-style: groove;
+  border-color: red;
+  border-radius: 20px;
 }
 
 .footer {
-  margin-top: 30px;
+  margin-top: 40px;
   text-align: center;
 }
