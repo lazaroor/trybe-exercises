@@ -3,10 +3,11 @@
 import Header from './Header';
 import Content from './Content';
 import Footer from './Footer';
+import './App.css'
 
 function App() {
   return (
-    <main>
+    <main className='main'>
       <Header/>
       <Content/>
       <Footer/>
