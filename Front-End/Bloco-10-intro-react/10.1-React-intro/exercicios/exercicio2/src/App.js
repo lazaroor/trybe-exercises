@@ -7,14 +7,11 @@ const Task = (value) => {
   );
 }
 
-const compromissos = ['Estudar react', 'Realizar exercicios', 'Ler o livro código limpo']
-
 function App() {
+  const compromissos = ['Ir ao mercado', 'Cozinhar', 'limpar quarto']
   return (
     <ul>
-      {compromissos.map((element) => {
-        return Task(element);
-      })}
+      {compromissos.map((compromisso) => Task(compromisso))}
     </ul>
   );
 }
