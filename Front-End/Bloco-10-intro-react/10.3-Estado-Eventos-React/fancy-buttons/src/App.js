@@ -21,25 +21,42 @@ class App extends React.Component {
   }
 
   handleButtonTwo() {
-    // variável props obrigatória, coloca-se "_" para tirar a falta de declaração
     this.setState((estadoAnterior, _props) => ({
       clickNumberTwo: estadoAnterior.clickNumberTwo + 1,
     }))
   }
 
   handleButtonThree() {
-    // variável props obrigatória, coloca-se "_" para tirar a falta de declaração
     this.setState((estadoAnterior, _props) => ({
       clickNumberThree: estadoAnterior.clickNumberThree + 1,
     }))
   }
 
+  isEven(clickNumber) {
+    return clickNumber % 2 === 0 ? 'green' : 'red';
+  }
+
   render() {
-    console.log(this);
+    const { clickNumberOne, clickNumberTwo, clickNumberThree } = this.state;
     return <>
-      <button onClick={this.handleButtonOne}>{this.state.clickNumberOne}</button>
-      <button onClick={this.handleButtonTwo}>{this.state.clickNumberTwo}</button>
-      <button onClick={this.handleButtonThree}>{this.state.clickNumberThree}</button>
+      <button 
+      onClick={this.handleButtonOne}
+      style={{ backgroundColor: this.isEven(clickNumberOne) }}
+      >
+        {this.state.clickNumberOne}
+      </button>
+      <button 
+        onClick={this.handleButtonTwo}
+        style={{ backgroundColor: this.isEven(clickNumberTwo) }}
+      >
+        {this.state.clickNumberTwo}
+      </button>
+      <button 
+        onClick={this.handleButtonThree}
+        style={{ backgroundColor: this.isEven(clickNumberThree) }}
+      >
+        {this.state.clickNumberThree}
+      </button>
     </>
   }
 }
