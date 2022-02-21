@@ -1,15 +1,21 @@
 import React from "react";
 
-function handleClick() {
-  console.log('Clicou no botão!');
-}
-
 class App extends React.Component {
+  constructor() {
+    super()
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    console.log('Clicou no botão!');
+    console.log(this);
+  }
   render() {
+    console.log(this);
     return <>
-      <button onClick={handleClick }>Botão 1</button>
-      <button onClick={handleClick }>Botão 2</button>
-      <button onClick={handleClick }>Botão 3</button>
+      <button onClick={this.handleClick}>Botão 1</button>
+      <button onClick={this.handleClick}>Botão 2</button>
+      <button onClick={this.handleClick}>Botão 3</button>
     </>
   }
 }
