@@ -1,16 +1,18 @@
 import React from "react";
 
 class App extends React.Component {
-  
+
   constructor() {
     super()
     this.handleButtonOne = this.handleButtonOne.bind(this);
     this.handleButtonTwo = this.handleButtonTwo.bind(this);
     this.handleButtonThree = this.handleButtonThree.bind(this);
+    this.hidePwd = this.hidePwd.bind(this);
     this.state = {
       clickNumberOne: 0,
       clickNumberTwo: 0,
       clickNumberThree: 0,
+      typePwd: 'Password',
     }
   }
 
@@ -31,6 +33,14 @@ class App extends React.Component {
     this.setState((estadoAnterior, _props) => ({
       clickNumberThree: estadoAnterior.clickNumberThree + 1,
     }))
+  }
+
+  hidePwd() {
+    if(this.state.typePwd === 'password'){
+      this.setState({typePwd: 'text'})
+    } else {
+      this.setState({typePwd: 'password'})
+    }
   }
 
   isEven(clickNumber) {
@@ -58,6 +68,9 @@ class App extends React.Component {
       >
         {this.state.clickNumberThree}
       </button>
+
+      <input type={this.state.typePwd}></input>
+      <button onClick={this.hidePwd}>Mostrar</button>
     </>
   }
 }
