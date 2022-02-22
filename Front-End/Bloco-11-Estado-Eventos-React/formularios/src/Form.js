@@ -7,13 +7,16 @@ class Form extends React.Component {
     this.handleChange = this.handleChange.bind(this);
 
     this.state = { 
-      testState: '',
+      optionSelect: '',
+      resumo: '',
+      check: '',
      }
   }
 
-  handleChange(event) {
-    console.log(event.target.name)
-    this.setState({testState: event.target.value})
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+    this.setState({[name]: value})
   }
 
   render() {
@@ -21,12 +24,13 @@ class Form extends React.Component {
       <div>
         <form>
           <select>
-            <option value="teste">teste</option>
+            <option value="teste" name="optionSelect" onChange={this.handleChange}>teste</option>
+            <option value="teste2" name="optionSelect" onChange={this.handleChange}>teste2</option>
           </select>
           <label> Teste
             <textarea onChange={this.handleChange} name="resumo" />
           </label>
-          <input type ="checkbox"></input>
+          <input type ="checkbox" name="check" onChange={this.handleChange}></input>
         </form>
       </div>
     ) 
